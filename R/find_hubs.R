@@ -7,9 +7,13 @@
 #'
 #' @param graph An igraph object
 #' @param physeq A phyloseq object (must include taxonomy table) that matches the taxa in the igraph object
-#' @param cutoff Method to use for determining hub taxa authority cutoff. One of "midpoint", "median","1sd","2sd
-#' @param layout Which layout to use for vertices. Currently accepts one of: "auto","gem","davidson"
-#' @param littlepoint Base size for non-hub taxa in the plot
+#' @param cutoff Method to use for determining hub taxa authority cutoff. One of "midpoint", "median","1sd","2sd"
+#'
+#' @details
+#' cutoff == "midpoint": hub taxa have scores above the midpoint between min and max hub scores
+#' cutoff == "1sd": hub taxa have scores > 1 std.dev higher than the mean hub score
+#' cutoff == "2sd": hub taxa have scores > 2 std.devs higher than the mean hub score
+#'
 #'
 #' @return Data Frame of hub taxa identities and hub scores. colNames = c("hub_taxon","hub_score","vertex_id). If the igraph object does not have vertex names, a vector of hub values for taxa over the threshold is returned instead.
 #'
@@ -21,12 +25,12 @@
 
 # graph <- readRDS("../Cheeke_Proposal/Output/ITS_igraph_4_out.RDS")
 
-find_hubs <- function(graph,physeq,cutoff="median"){
+find_hubs <- function(graph,physeq,cutoff="midpoint"){
 
   a.score <- igraph::authority_score(graph)$vector
   h.score <- igraph::hub_score(graph)$vector
 
-  if(cutoff=="median"){
+  if(cutoff=="midpoint"){
     h.cutoff <- median(c(min(h.score),max(h.score)))
   }
 
