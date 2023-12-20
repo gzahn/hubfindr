@@ -2,6 +2,7 @@
 
 export(find_hubs)
 export(plot_hubs)
+export(score_keystoneness)
 import(SpiecEasi)
 import(igraph)
 import(phyloseq)
