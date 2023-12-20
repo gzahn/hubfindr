@@ -10,6 +10,7 @@ These functions make identifying and working with network hubs easier.
 
 This package is under active development. *caveat emptor*
 
+Depends on: *igraph* v >= 1.5.1
 
 ### Installation
 
