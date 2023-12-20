@@ -2,4 +2,5 @@
 
 export(find_hubs)
 export(plot_hubs)
+import(SpiecEasi)
 import(igraph)

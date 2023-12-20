@@ -4,10 +4,12 @@
 \alias{find_hubs}
 \title{Find hub taxa}
 \usage{
-find_hubs(graph, cutoff = "median")
+find_hubs(graph, physeq, cutoff = "median")
 }
 \arguments{
 \item{graph}{An igraph object}
+
+\item{physeq}{A phyloseq object (must include taxonomy table) that matches the taxa in the igraph object}
 
 \item{cutoff}{Method to use for determining hub taxa authority cutoff. One of "midpoint", "median","1sd","2sd}
 
@@ -16,12 +18,12 @@ find_hubs(graph, cutoff = "median")
 \item{littlepoint}{Base size for non-hub taxa in the plot}
 }
 \value{
-plot of igraph network with vertices sized by authority score
+Data Frame of hub taxa identities and hub scores. colNames = c("hub_taxon","hub_score","vertex_id). If the igraph object does not have vertex names, a vector of hub values for taxa over the threshold is returned instead.
 }
 \description{
 Returns a named vector of hub taxa (vertices)
 }
 \examples{
-plot_hubs(igraph_object)
+find_hubs(igraph_object,physeq)
 
 }
