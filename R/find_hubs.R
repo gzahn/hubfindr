@@ -4,6 +4,7 @@
 #'
 #' @import igraph
 #' @import SpiecEasi
+#' @import phyloseq
 #'
 #' @param graph An igraph object
 #' @param physeq A phyloseq object (must include taxonomy table) that matches the taxa in the igraph object
