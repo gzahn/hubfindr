@@ -11,11 +11,12 @@
 #' scale01(x)
 #'
 #' @export
+#'
 
 scale01 <- function(x){
-  if(max(x) == 0){return(x)} # if all zeros, do nothing
-  if(max(x) > 0){return((x - min(x)) / (max(x) - min(x)))} # if some positive, scale as normal
-  if(sum(x) < 0){x <- abs(x) # not sure about this
-  scaled <- (x - min(x)) / (max(x) - min(x))
+  if(max(x,na.rm=TRUE) == 0){return(x)} # if all zeros, do nothing
+  if(max(x,na.rm=TRUE) > 0){return((x - min(x,na.rm=TRUE)) / (max(x,na.rm=TRUE) - min(x,na.rm=TRUE)))} # if some positive, scale as normal
+  if(sum(x,na.rm=TRUE) < 0){x <- abs(x)
+  scaled <- (x - min(x,na.rm=TRUE)) / (max(x,na.rm=TRUE) - min(x,na.rm=TRUE))
   return(-scaled)} # if all negative, use absolute values, then replace negative sign
 }
