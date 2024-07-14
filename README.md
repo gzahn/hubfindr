@@ -54,3 +54,13 @@ hubs <- find_hubs(ig,ps,"midpoint")
 
 <img src="https://github.com/gzahn/hubfindr/blob/main/media/hub_table.png" alt="results table" width="800"/>
 
+### Citation:
+
+Please cite this package if you find it useful.
+
+[![DOI](https://zenodo.org/badge/733999306.svg)](https://zenodo.org/doi/10.5281/zenodo.12741088)
+
+Geoffrey Zahn. (2024). gzahn/hubfindr: v0.1.0 (v0.1.0). Zenodo. https://doi.org/10.5281/zenodo.12741089
+
+
+
